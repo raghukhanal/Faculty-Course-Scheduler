@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <form>
+        <label for="semesterSelection">Term:</label>
+        <select id="semesterSelection">
+        {% for sem in semester %}
+            <option>{{ sem.terms }}</option>
+        {% endfor %}
+        </select>
+    <label for="multiCourseSelection"> Please Select Course(s)</label>
+     <select multiple id= "multiCourseSelection">
+        {% for cour in courses %}
+            <option>{{ cour.course_code }} - {{ cour.course_name }}</option>
+        {% endfor %}
+        </select>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block body %}
+    {{ message|default('', true) }}
+    <div class="col-4 offset-4 mt-5 card shadow">
+    <h3 class="card-header">
+        Administrator Login
+    </h3>
+        <div class="card-body">
+            <form action="{{ url_for('administrator_login') }}" method="post">
+            <label for="user-id">User ID</label>
+            <input type="text" id="user-id"  name="user-id"  class="form-control">
+            <label for="user-pin">PIN</label>
+            <input type="password" id="user-pin" name="user-pin" class="form-control">
+            <button class="btn btn-primary mt-3 btn-block" type="submit">Log in</button>
+        </form>
+        </div>
+
+    </div>
+{% endblock %}
