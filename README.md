@@ -1,5 +1,5 @@
-# SoftGreen - Faculty Schedule Form
-Faculty Schedule Form
+# SoftGreen - Faculty Course Scheduler
+Faculty Course Scheduler
 
 ## Description
 SoftGreen is creating a scheduling system using forms that teachers will use to choose course sections for each semester. 
@@ -24,10 +24,10 @@ The goal of SoftGreen is to allow teachers to sign up for course sections in an 
 3. Nick Risley: Data Modeler, Documentation Lead :ok_hand: :running: :japanese_goblin:
 
 ## Installation Instructions:
-npm install
+pip install -r requirements.pip
 
 ## Dev Server Instructions:
-npm start
+python SoftGreen.py
 
 ## Libraries Used:
 Material Fonts
