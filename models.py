@@ -35,7 +35,7 @@ class Semester(Model):
 class Courses(Model):
     course_code = CharField(unique=True)
     course_name = CharField(unique=True)
-    department = CharField(unique=True)
+    department = CharField()
 
     class Meta:
         database = db

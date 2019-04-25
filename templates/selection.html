@@ -1,19 +1,26 @@
 {% extends "base.html" %}
 
 {% block body %}
-    <form>
-        <label for="semesterSelection">Term:</label>
-        <select id="semesterSelection">
+    <form class="col-4 offset-4 mt-4" action="{{ url_for('faculty_selection') }}" method="post">
+    <div class="form-group">
+         <label for="semesterSelection">Term:</label>
+        <select id="semesterSelection" class="form-control" name="term_id" required>
         {% for sem in semester %}
-            <option>{{ sem.terms }}</option>
+            <option value="{{ sem.id }}">{{ sem.terms }}</option>
         {% endfor %}
         </select>
-    <label for="multiCourseSelection"> Please Select Course(s)</label>
-     <select multiple id= "multiCourseSelection">
+    </div>
+       <div class="form-group">
+           <label for="multiCourseSelection"> Please Select Course(s)</label>
+     <select multiple id= "multiCourseSelection" class="form-control" name="course_ids" required>
         {% for cour in courses %}
-            <option>{{ cour.course_code }} - {{ cour.course_name }}</option>
+            <option value="{{ cour.id }}">{{ cour.course_code }} - {{ cour.course_name }}</option>
         {% endfor %}
         </select>
+
+       </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+
     </form>
 
 {% endblock %}

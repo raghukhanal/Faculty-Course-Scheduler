@@ -76,6 +76,44 @@ def moderator_login():
 
 @app.route('/faculty_selection', methods=['POST', 'GET'])
 def faculty_selection():
+    if request.method == "POST":
+        form_term = request.form.get("term_id")
+        form_courses = request.form.getlist("course_ids")
+
+        selected_term = Semester.get(id=form_term)
+        selected_courses = []
+        for item in form_courses:
+            selected_courses.append(Courses.get(id=item))
+        weekday = {
+            "Monday": 1,
+            "Tuesday": 2,
+            "Wednesday": 3,
+            "Thursday": 4,
+            "Friday": 5,
+            "Saturday": 6
+        }
+        teaching_hours = {
+            "7:30": 1,
+            "8:30": 2,
+            "9:30": 3,
+            "10:30": 4,
+            "11:30": 5,
+            "12:30": 6,
+            "13:30": 7,
+            "14:30": 8,
+            "15:30": 9,
+            "16:30": 10,
+            "17:30": 11,
+            "18:30": 12
+
+        }
+        return render_template(
+            "select_days_and_time.html",
+            selected_courses=selected_courses,
+            selected_term=selected_term,
+            weekday=weekday,
+            teaching_hours = teaching_hours
+        )
     courses = Courses.select()
     semester = Semester.select()
     return render_template("selection.html", courses=courses, semester=semester)
