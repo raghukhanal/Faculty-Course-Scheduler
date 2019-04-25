@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, abort, session
+from flask import Flask, render_template, request, abort, session, redirect, url_for
 from models import Person, Administrator, Faculty, Moderator, Semester, Courses
 from constants import ROLES
 app = Flask(__name__)
@@ -57,7 +57,7 @@ def faculty_login():
         if logged_in:
             session['logged_in'] = True
             session['role'] = "faulty"
-            return faculty_selection()
+            return redirect(url_for("faculty_selection"))
 
     return render_template("faculty_login.html")
 
@@ -112,7 +112,7 @@ def faculty_selection():
             selected_courses=selected_courses,
             selected_term=selected_term,
             weekday=weekday,
-            teaching_hours = teaching_hours
+            teaching_hours=teaching_hours
         )
     courses = Courses.select()
     semester = Semester.select()
