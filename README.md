@@ -23,12 +23,15 @@ The goal of SoftGreen is to allow teachers to sign up for course sections in an 
 2. Israt Liju: team manager, client liason :boom: :musical_note: :fire:
 3. Nick Risley: Data Modeler, Documentation Lead :ok_hand: :running: :japanese_goblin:
 
+# Must have:
+Python 3.0.0 or above installed
+
 ## Installation Instructions:
 pip install -r requirements.pip
 
 ## Dev Server Instructions:
-python SoftGreen.py
+Python models.py
+Python SoftGreen.py
 
 ## Libraries Used:
-Material Fonts
-Material Icons
+BootStraps
