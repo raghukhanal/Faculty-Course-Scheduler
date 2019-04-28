@@ -12,7 +12,7 @@
     </div>
        <div class="form-group">
            <label for="multiCourseSelection"> Please Select Course(s)</label>
-     <select multiple id= "multiCourseSelection" class="form-control" name="course_ids" required>
+     <select multiple id= "multiCourseSelection" class="form-control" name="course_ids" required style="height: 500px">
         {% for cour in courses %}
             <option value="{{ cour.id }}">{{ cour.course_code }} - {{ cour.course_name }}</option>
         {% endfor %}

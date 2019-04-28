@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="container-fluid mt-3">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <td>Faculty Name</td>
+                <td>Course Name</td>
+                <td>Date and Time</td>
+            </tr>
+        </thead>
+    <tbody>
+
+        {% for item in to_review %}
+            <tr>
+             <td>{{ item.faculty.first_name }}</td>
+                <td>{{ item.course.course_name }}</td>
+                <td>
+                    {% for dt in item.course.day_time %}
+                        {{ dt.days }} - {{ dt.start_time[:2] }}:{{ dt.start_time[2:] }} - {{ dt.end_time[:2] }}:{{ dt.end_time[2:] }}
+                    {% endfor %}
+                </td>
+            </tr>
+
+        {% endfor %}
+    </tbody>
+
+    </table>
+
+    </div>
+
+{% endblock %}

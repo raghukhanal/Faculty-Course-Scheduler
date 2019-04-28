@@ -5,6 +5,17 @@
 </head>
 {% include "_nav.html" %}
 <body>
+<div class="container-fluid mt-2">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class=flashes>
+                {% for message in messages %}
+                    <div class="alert alert-primary">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+</div>
 {% block body %}
 {% endblock %}
 

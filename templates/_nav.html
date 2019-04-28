@@ -1,8 +1,10 @@
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="/">Home
+  <a class="navbar-brand" href="/">SoftGreen
     <img src="/login.png" width="30" height="30" alt="">
   </a>
   <form class="form-inline">
+  {% if session['logged_in'] %}
       <a class="btn btn-outline-danger my-2 my-sm-0" href="/logout">Logout</a>
+  {% endif %}
   </form>
 </nav>
